@@ -1,0 +1,40 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+
+Resources:
+  IAMPolicy:
+    # This adds the permissions that are required to deploy application arn:aws:serverlessrepo:us-east-1:303769779339:applications/aws-sqs-dlq-redriver
+    Type: AWS::IAM::Policy
+    Properties:
+      Roles:
+        - !GetAtt awsserverlessrepoautodeploy.Outputs.ApplicationAutoDeployerRoleName
+      PolicyName: 'app-permission'
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+        - Effect: Allow
+          Action:
+          - iam:CreateRole
+          - iam:DeleteRole
+          - lambda:CreateFunction
+          - iam:AttachRolePolicy
+          - iam:DetachRolePolicy
+          - iam:PutRolePolicy
+          - iam:DeleteRolePolicy
+          - iam:GetRole
+          - iam:PassRole
+          - s3:GetObject
+          - lambda:GetFunction*
+          - lambda:DeleteFunction*
+          - lambda:UpdateFunction*
+          Resource: '*'
+  awsserverlessrepoautodeploy:
+    Type: AWS::Serverless::Application
+    Properties:
+      Location:
+        ApplicationId: arn:aws:serverlessrepo:us-east-1:303769779339:applications/aws-serverlessrepo-auto-deploy
+        SemanticVersion: 1.0.0
+      Parameters:
+        ApplicationId: 'arn:aws:serverlessrepo:us-east-1:303769779339:applications/aws-sqs-dlq-redriver'
+        Capabilities: '["CAPABILITY_IAM"]'
+        StackName: 'auto-deploy'
