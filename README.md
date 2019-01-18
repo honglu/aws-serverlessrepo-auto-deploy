@@ -3,7 +3,12 @@ This serverless application automatically deploys new versions of an serverless 
 
 ## App Architecture
 
-TODO: arch diagram
+![App Architecture](https://github.com/honglu/aws-serverlessrepo-auto-deploy/raw/master/images/app-architecture.png)
+
+1. The app creates a CloudWatch Rule that will invoke a Lambda function on a schedule.
+1. When the Lambda function is invoked, it gets the application id and semantic version from the given CloudFormation stack.
+1. If the stack already exists, it checks whether the current latest semantic version is newer than the deployed semantic version. If no, the Lambda will exit.
+1. The Lambda function then deploys the latest semantic version of the application to CloudFormation.
 
 ## Installation Instructions
 
@@ -11,7 +16,7 @@ TODO: arch diagram
 1. Go to the app's page on the [Serverless Application Repository](https://serverlessrepo.aws.amazon.com/applications/arn:aws:serverlessrepo:us-east-1:303769779339:applications~aws-serverlessrepo-auto-deploy) and click "Deploy"
 1. Click "Copy as SAM Resource"
 1. Create your own SAM template by pasting the application resource into your SAM template and fill in the parameters (see parameter details below)
-1. Add any permissions that are required to deploy the application you would like to setup the auto deploy as `AWS::IAM::Policy` resource in your SAM template. See [Example](https://github.com/honglu/aws-serverlessrepo-auto-deploy/raw/master/examples/example-template.yml)
+1. Add any permissions that are required to deploy the application you would like to setup the auto deploy as `AWS::IAM::Policy` resource in your SAM template. See [Example](https://github.com/honglu/aws-serverlessrepo-auto-deploy/blob/master/examples/example-template.yml)
 1. Deploy your SAM template: ```sam deploy --template-file <path-to-your-sam-template> --stack-name <your-stack-name> --capabilities CAPABILITY_AUTO_EXPAND```
 
 ## App Parameters
