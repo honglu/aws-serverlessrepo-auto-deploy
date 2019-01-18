@@ -24,8 +24,9 @@ This serverless application automatically deploys new versions of an serverless 
 1. `LogLevel` (optional) - Log level for Lambda function logging, e.g., ERROR, INFO, DEBUG, etc. Default: INFO
 1. `ApplicationId` (required) - The application id of the application in AWS Serverless Application Repository.
 1. `StackName` (required) - The stack name for the application. If you already have a stack that is created by AWS Serverless Application Repository, please provide the stack name you used when you created the stack via AWS Serverless Application Repository. For example, the stack name without `serverlessrepo-` prefix.
-1. `ParameterOverrides` (optional) - A JSON string representation of the parameter overrides for the application.
-1. `Capabilities` (optional) - A JSON string representation of the capabilities for the application.
+1. `Schedule` (optional) - CloudWatch event schedule to invoke the Lambda function. Default is `rate(1 day)` or once per day.
+1. `ParameterOverrides` (optional) - A JSON string representation of the parameter overrides for the application. Default is an empty list.
+1. `Capabilities` (optional) - A JSON string representation of the capabilities for the application. Default is an empty list.
 
 ## App Outputs
 

@@ -13,8 +13,8 @@ Metadata:
     ReadmeUrl: ../../README.md
     Labels: [serverless]
     HomePageUrl: https://github.com/honglu/aws-serverlessrepo-auto-deploy
-    SemanticVersion: 0.0.3
-    SourceCodeUrl: https://github.com/honglu/aws-serverlessrepo-auto-deploy/tree/0.0.3
+    SemanticVersion: 1.0.2
+    SourceCodeUrl: https://github.com/honglu/aws-serverlessrepo-auto-deploy/tree/1.0.2
 
 Parameters:
   LogLevel:
@@ -27,6 +27,10 @@ Parameters:
   StackName:
     Type: String
     Description: The stack name for the application.
+  Schedule:
+    Type: String
+    Description: CloudWatch event schedule to check and update the application deployment
+    Default: 'rate(1 day)'
   ParameterOverrides:
     Type: String
     Description: A JSON string representation of the parameter overrides for the application.
@@ -75,7 +79,7 @@ Resources:
         DailySchedule:
           Type: Schedule
           Properties:
-            Schedule: rate(1 day)
+            Schedule: !Ref Schedule
 
 Outputs:
   ApplicationAutoDeployerFunctionName:
