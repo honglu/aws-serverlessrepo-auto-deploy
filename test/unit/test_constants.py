@@ -3,4 +3,7 @@
 This can be used to define values for environment variables so unit tests can use these to assert on expected values.
 """
 
-TABLE_NAME = 'MyTableName'
+APPLICATION_ID = 'MyApplicationId'
+STACK_NAME = 'MyStackName'
+PARAMETER_OVERRIDES = ''
+CAPABILITIES = ''

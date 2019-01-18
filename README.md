@@ -1,6 +1,6 @@
-# aws-serverlessrepo-auto-deploy
+# aws-serverlessrepo-auto-deploy ![Build Status](https://codebuild.us-east-1.amazonaws.com/badges?uuid=eyJlbmNyeXB0ZWREYXRhIjoiVlI5bVYxaVduUnFmMFhMeFRNUjY3eTJROC93RThlRjZmZmNCKzNzQnNJNnZYZHUyNzlYd0VTbTZ3T0ZZakhkRmJNdklUSFc2YnMzeXZuQ0pIaGlxQnlRPSIsIml2UGFyYW1ldGVyU3BlYyI6IjNIVTNYSFpVTk1nTGt2ZUciLCJtYXRlcmlhbFNldFNlcmlhbCI6MX0%3D&branch=master)
 
-This serverless app... TODO
+This serverless application automatically deploys new versions of an serverless app in AWS Serverless Application repository into your account.
 
 ## App Architecture
 

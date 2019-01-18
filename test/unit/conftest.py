@@ -10,4 +10,7 @@ my_path = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, my_path + '/../../src/')
 
 # set expected config environment variables to test constants
-os.environ['TABLE_NAME'] = test_constants.TABLE_NAME
+os.environ['APPLICATION_ID'] = test_constants.APPLICATION_ID
+os.environ['STACK_NAME'] = test_constants.STACK_NAME
+os.environ['PARAMETER_OVERRIDES'] = test_constants.PARAMETER_OVERRIDES
+os.environ['CAPABILITIES'] = test_constants.CAPABILITIES
