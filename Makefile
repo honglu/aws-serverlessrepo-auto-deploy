@@ -42,7 +42,7 @@ compile:
 	pipenv run flake8 $(TST_DIR)
 	pipenv run pydocstyle $(SRC_DIR)
 	pipenv run cfn-lint template.yml
-	pipenv run py.test --cov=$(SRC_DIR) --cov-fail-under=70 -vv $(TST_DIR)
+	pipenv run py.test --cov=$(SRC_DIR) --cov-fail-under=85 -vv $(TST_DIR)
 	pipenv lock --requirements > $(SRC_DIR)/requirements.txt
 	pipenv run sam build
 

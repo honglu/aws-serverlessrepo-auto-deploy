@@ -13,8 +13,8 @@ Metadata:
     ReadmeUrl: ../../README.md
     Labels: [serverless]
     HomePageUrl: https://github.com/honglu/aws-serverlessrepo-auto-deploy
-    SemanticVersion: 1.0.2
-    SourceCodeUrl: https://github.com/honglu/aws-serverlessrepo-auto-deploy/tree/1.0.2
+    SemanticVersion: 1.0.3
+    SourceCodeUrl: https://github.com/honglu/aws-serverlessrepo-auto-deploy/tree/1.0.3
 
 Parameters:
   LogLevel:
