@@ -5,5 +5,5 @@ This can be used to define values for environment variables so unit tests can us
 
 APPLICATION_ID = 'MyApplicationId'
 STACK_NAME = 'MyStackName'
-PARAMETER_OVERRIDES = ''
-CAPABILITIES = ''
+PARAMETER_OVERRIDES = '{"Name": "myParam", "Value": 1}'
+CAPABILITIES = '["CAPABILITY_IAM"]'
